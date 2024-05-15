@@ -1,19 +1,7 @@
 services:
   web:
     build:
-      context: . # set current directory as the working directory
-      dockerfile: Dockerfile.dev # specify the name of the image build file
-    ports:
-      - "3000:3000"
-    volumes:
-      - /app/node_modules # don't map the node_modules folder
-      - .:/app # map /app in container back to current dir
-
-  tests: # Set up a 2nd container that will run all tests
-    build:
       context: .
-      dockerfile: Dockerfile.dev
-    volumes:
-      - /app/node_modules
-      - .:/app  
-    command: ["npm", "run", "test"]
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
