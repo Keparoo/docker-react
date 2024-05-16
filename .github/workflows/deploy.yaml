@@ -13,8 +13,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Login to DockerHub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin < ${{ secrets.DOCKER_PASSWORD }}
+      # - name: Login to DockerHub
+      #   run: docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin < ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build docker image
         run: docker build -t keparoo/react-test -f Dockerfile.dev .
